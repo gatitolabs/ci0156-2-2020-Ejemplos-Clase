@@ -1,0 +1,7 @@
+{
+  "name": "plancharlaoreja",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

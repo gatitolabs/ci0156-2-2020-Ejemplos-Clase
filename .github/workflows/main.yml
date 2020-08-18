@@ -17,6 +17,10 @@ jobs:
         working-directory: plancharlaoreja
         run: npm install
 
+      - name: Ejecutar Pruebas de Unidad
+        working-directory: plancharlaoreja
+        run: npm run ci:test
+
       - name: Crear Build
         working-directory: plancharlaoreja
         run: npm run build

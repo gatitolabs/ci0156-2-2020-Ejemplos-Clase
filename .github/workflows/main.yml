@@ -1,0 +1,22 @@
+name: Construir App
+on: [push]
+jobs:
+  construir:
+    name: Construir, Pruebas de Unidad
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+
+      - name: Configurar Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12
+
+      - name: Instalar Dependencias
+        working-directory: plancharlaoreja
+        run: npm install
+
+      - name: Crear Build
+        working-directory: plancharlaoreja
+        run: npm run build

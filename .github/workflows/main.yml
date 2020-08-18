@@ -13,6 +13,14 @@ jobs:
         with:
           node-version: 12
 
+      - name: Cache de NPM
+        uses: actions/cache@v2
+        with:
+          path: "**/node_modules"
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
       - name: Instalar Dependencias
         working-directory: plancharlaoreja
         run: npm install

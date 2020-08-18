@@ -6,9 +6,5 @@ import {Component} from '@angular/core';
   styleUrls: ['home.page.scss']
 })
 export class HomePage {
-  constructor() {
-    const patito = 'hola';
-    let otro;
-    otro++;
-  }
+  constructor() {}
 }

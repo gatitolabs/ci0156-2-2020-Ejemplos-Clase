@@ -229,3 +229,23 @@
     --ion-card-background: #1e1e1e;
   }
 }
+
+// ! Generador de colores: https://ionicframework.com/docs/theming/colors
+
+:root {
+  --ion-color-verde-menta: #5da93d;
+  --ion-color-verde-menta-rgb: 93, 169, 61;
+  --ion-color-verde-menta-contrast: #ffffff;
+  --ion-color-verde-menta-contrast-rgb: 0, 0, 0;
+  --ion-color-verde-menta-shade: #529536;
+  --ion-color-verde-menta-tint: #6db250;
+}
+
+.ion-color-verde-menta {
+  --ion-color-base: var(--ion-color-verde-menta);
+  --ion-color-base-rgb: var(--ion-color-verde-menta-rgb);
+  --ion-color-contrast: var(--ion-color-verde-menta-contrast);
+  --ion-color-contrast-rgb: var(--ion-color-verde-menta-contrast-rgb);
+  --ion-color-shade: var(--ion-color-verde-menta-shade);
+  --ion-color-tint: var(--ion-color-verde-menta-tint);
+}

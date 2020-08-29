@@ -5,9 +5,10 @@ import {FormsModule} from '@angular/forms';
 import {HomePage} from './home.page';
 
 import {HomePageRoutingModule} from './home-routing.module';
+import {ImgpickerComponent} from '../shared/imgpicker/imgpicker.component';
 
 @NgModule({
   imports: [CommonModule, FormsModule, IonicModule, HomePageRoutingModule],
-  declarations: [HomePage]
+  declarations: [HomePage, ImgpickerComponent]
 })
 export class HomePageModule {}

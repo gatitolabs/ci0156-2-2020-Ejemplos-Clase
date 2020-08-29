@@ -18,7 +18,7 @@ export class LoginPage implements OnInit {
 
   ngOnInit() {}
 
-  onSubmit(form: NgForm) {
+  async onSubmit(form: NgForm) {
     if (!form.valid) {
       return;
     }
@@ -26,20 +26,38 @@ export class LoginPage implements OnInit {
     const userEmail = form.value.email;
     const userPassword = form.value.password;
 
-    this.firebaseAuth
-      .signInWithEmailAndPassword(userEmail, userPassword)
-      .then((userData) => {
-        console.log({userData});
-        this.router.navigate(['/home']);
-      })
-      .catch(async (error) => {
-        const toast = await this.toaster.create({
-          header: 'Error',
-          message: error.message,
-          position: 'bottom',
-          duration: 3000
-        });
-        toast.present();
+    // * Implementacion con Promesas
+    // this.firebaseAuth
+    //   .signInWithEmailAndPassword(userEmail, userPassword)
+    //   .then((userData) => {
+    //     console.log({userData});
+    //     this.router.navigate(['/home']);
+    //   })
+    //   .catch(async (error) => {
+    //     const toast = await this.toaster.create({
+    //       header: 'Error',
+    //       message: error.message,
+    //       position: 'bottom',
+    //       duration: 3000
+    //     });
+    //     toast.present();
+    //   });
+
+    // * Implementacion con async/await
+
+    try {
+      const resultado = await this.firebaseAuth.signInWithEmailAndPassword(userEmail, userPassword);
+      console.log({resultado});
+      this.router.navigate(['/home']);
+    } catch (e) {
+      console.log({e});
+      const toast = await this.toaster.create({
+        header: 'Error',
+        message: e.message,
+        position: 'bottom',
+        duration: 3000
       });
+      toast.present();
+    }
   }
 }

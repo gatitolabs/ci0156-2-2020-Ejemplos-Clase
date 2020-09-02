@@ -6,6 +6,6 @@ export {createUser, deleteUser} from './auth';
 
 export {dbTriggerOnCreate} from './firestore';
 
-export {getBasico, getBasicoConParams, ejemploPost, ejemploPostJson} from './http';
+export {getBasico, getBasicoConParams, ejemploPost, ejemploPostJson, getSeguro} from './http';
 
 export {api} from './express';

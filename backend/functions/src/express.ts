@@ -4,6 +4,9 @@ import * as express from 'express';
 import * as cors from 'cors';
 
 // ! Verifica que venga token oAuth2 en el encabezado del request
+// ! Para obtener token => usar postman o insomnia con este URL y el JSON con las credenciales
+// ! https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=EL_KEY_DE_SU_PROYECTO_DE_FIREBASE
+// ! { "email": "usuario@correo.com", "password": "mipasswordsecreto", "returnSecureToken": true }
 const auth = async (request: any, response: any, next: any) => {
   if (!request.headers.authorization) {
     response.status(401).send('unauthorized');

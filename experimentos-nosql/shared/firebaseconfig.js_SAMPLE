@@ -1,0 +1,15 @@
+// Copiar y nombrar "firebaseconfig.js" y llenar los campos con los de su cuenta de firebase
+
+const privateConfig = {
+  apiKey: '',
+  authDomain: '',
+  databaseURL: '',
+  projectId: '',
+  storageBucket: '',
+  messagingSenderId: '',
+  appId: ''
+};
+
+module.exports = {
+  config: privateConfig
+};

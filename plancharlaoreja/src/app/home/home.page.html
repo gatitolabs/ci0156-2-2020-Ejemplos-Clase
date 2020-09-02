@@ -24,6 +24,12 @@
     <p>
       <ion-button (click)="callBackend()" color="tertiary">Llamar API Privado</ion-button>
     </p>
+    <p>
+      <ion-button (click)="getLocation()" color="secondary">Obtener Ubicación Actual</ion-button>
+    </p>
+    <p>
+      <span>{{coordenadas}}</span>
+    </p>
     <ion-button (click)="performLogout()" color="verde-menta">Logout</ion-button>
   </div>
 </ion-content>

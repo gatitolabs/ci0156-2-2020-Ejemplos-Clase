@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {AngularFireAuth} from '@angular/fire/auth';
 import {Router} from '@angular/router';
 import {BackendService} from '../shared/backend.service';
+import {Plugins, Capacitor} from '@capacitor/core';
 
 @Component({
   selector: 'app-home',
@@ -9,6 +10,7 @@ import {BackendService} from '../shared/backend.service';
   styleUrls: ['home.page.scss']
 })
 export class HomePage implements OnInit {
+  coordenadas = '';
   constructor(
     private firebaseAuth: AngularFireAuth,
     private router: Router,
@@ -46,6 +48,25 @@ export class HomePage implements OnInit {
       console.log({mensaje});
     } catch (e) {
       console.error(e.error);
+    }
+  }
+
+  getLocation() {
+    // https://capacitorjs.com/docs/apis/geolocation
+    if (!Capacitor.isPluginAvailable('Geolocation')) {
+      console.error('No hay acceso al GPS');
+      return;
+    } else {
+      Plugins.Geolocation.getCurrentPosition()
+        .then((resultado) => {
+          console.log({resultado});
+          this.coordenadas = resultado.coords.latitude + ',' + resultado.coords.longitude;
+          console.log(`Coordenadas => ${this.coordenadas}`);
+        })
+        .catch((error) => {
+          console.error({error});
+          console.error('No hay acceso al GPS');
+        });
     }
   }
 }

@@ -13,6 +13,10 @@ jobs:
         with:
           node-version: 12
 
+      - name: Genear archivo de configuracion de firebase
+        working-directory: plancharlaoreja/src/environments
+        run: echo -n -e "${{secrets.FIREBASE_CONFIG}}" > firebase.environment.ts
+
       - name: Cache de NPM
         uses: actions/cache@v2
         with:

@@ -49,7 +49,7 @@ export class ImgpickerComponent implements OnInit {
         this.imageData = this.selectedImage;
         // ! Algunas veeces Capacitor retorna la foto como una imagen en base64 con el prefijo data:image/jpeg;base64
         // ! y a veces sin el prefijo.  Es por esto que se "borra" y se agrega de nuevo
-        this.selectedImage.replace('data:image/jpeg;base64,', '');
+        this.selectedImage = this.selectedImage.replace('data:image/jpeg;base64,', '');
         this.selectedImage = 'data:image/jpeg;base64,' + this.selectedImage;
       })
       .catch((error) => {

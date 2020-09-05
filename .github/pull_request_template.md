@@ -1,6 +1,6 @@
 **Eliminar todo lo que no aplique**
 
-## Tarea
+## 🐛Tarea
 
 Poner enlace de tarea en Jira
 

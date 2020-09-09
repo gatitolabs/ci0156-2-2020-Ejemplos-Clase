@@ -20,6 +20,11 @@ const routes: Routes = [
   {
     path: 'signup',
     loadChildren: () => import('./signup/signup.module').then((m) => m.SignupPageModule)
+  },
+  {
+    path: 'fire',
+    loadChildren: () => import('./fire/fire.module').then((m) => m.FirePageModule),
+    canLoad: [AuthGuard]
   }
 ];
 

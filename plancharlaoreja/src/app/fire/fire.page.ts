@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {AngularFirestore, AngularFirestoreCollection} from '@angular/fire/firestore';
 import {Observable} from 'rxjs';
+import {NgForm} from '@angular/forms';
 
 interface Libro {
   author: string;
@@ -46,5 +47,17 @@ export class FirePage implements OnInit {
     // librosRef.valueChanges()
 
     // console.log(this.librosObservable);
+  }
+
+  onSubmit(form: NgForm) {
+    const title = form.value.title;
+    const content = form.value.content;
+    console.log({title});
+    console.log({content});
+    // * Magia magia....
+    form.reset();
+    // * mas magia, mas magia...
+    // ! esto va a hacer que la prueba de unidad falle
+    // form.reset();
   }
 }

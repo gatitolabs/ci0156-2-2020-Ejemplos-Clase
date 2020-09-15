@@ -5,6 +5,41 @@
 </ion-header>
 
 <ion-content>
+  <ion-item>
+    <form class="user" (ngSubmit)="onSubmit(f)" #f="ngForm">
+      <div class="form-group">
+        <div class="col-6">
+          Título
+        </div>
+        <div class="col-6">
+          <input
+            type="text"
+            class="form-control"
+            id="title"
+            name="title"
+            placeholder="Título"
+            ngModel
+            required
+          />
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-6">
+          Contenido
+        </div>
+        <div class="col-6">
+          <textarea ngModel id="content" name="content" required placeholder="Contenido"></textarea>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-2 mb-3 mb-sm-0">
+          <button type="submit" data-test="submit-post-button" [disabled]="!f.valid">
+            Publicar
+          </button>
+        </div>
+      </div>
+    </form>
+  </ion-item>
   <ion-list>
     <ion-item *ngFor="let l of librosObservable | async">
       <ion-label>{{l.title}} año {{l.pub}}</ion-label>

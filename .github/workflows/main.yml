@@ -30,9 +30,9 @@ jobs:
         run: npm install
 
       # TODO: arreglar pruebase de unidad
-      # - name: Ejecutar Pruebas de Unidad
-      #   working-directory: plancharlaoreja
-      #   run: npm run ci:test
+      - name: Ejecutar Pruebas de Unidad
+        working-directory: plancharlaoreja
+        run: npm run ci:test
 
       - name: Crear Build
         working-directory: plancharlaoreja

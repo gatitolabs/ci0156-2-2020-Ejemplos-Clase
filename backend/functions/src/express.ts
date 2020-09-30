@@ -2,6 +2,7 @@ import * as functions from 'firebase-functions';
 import * as admin from 'firebase-admin';
 import * as express from 'express';
 import * as cors from 'cors';
+import * as fs from 'fs';
 
 // ! Verifica que venga token oAuth2 en el encabezado del request
 // ! Para obtener token => usar postman o insomnia con este URL y el JSON con las credenciales
@@ -37,7 +38,7 @@ const auth = async (request: any, response: any, next: any) => {
 const app = express();
 // ? middleware intercepta request y le hace algo
 app.use(cors({origin: true}));
-app.use(auth);
+// app.use(auth);
 
 app.get('/cat', (request, response) => {
   response.header('Content-Type', 'application/json');
@@ -47,6 +48,19 @@ app.get('/cat', (request, response) => {
 app.get('/dog', (request, response) => {
   response.header('Content-Type', 'application/json');
   response.send('{"mensaje":"soy un perrito"}');
+});
+
+app.get('/dibujito', (request, response) => {
+  const file = fs.createReadStream('/Users/aarias/Downloads/ejemplo.csv');
+
+  file.on('open', function () {
+    response.set('Content-Type', 'text/csv');
+    file.pipe(response);
+  });
+
+  // const result = 'h1,h2,h3\npatito1,patito2,patito3\npatito4,patito5,patito6';
+  // response.header('Content-Type', 'text/csv');
+  // response.send(result);
 });
 
 export const api = functions.https.onRequest(app);
